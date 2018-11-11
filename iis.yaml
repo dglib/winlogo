@@ -1,0 +1,17 @@
+version: "3.2"
+services:
+  web1:
+    image: microsoft/iis:nanoserver
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels:
+        com.docker.lb.hosts: iis.apps.docker.ee
+        com.docker.lb.network: frontend
+        com.docker.lb.port: 80
+  networks: 
+    - frontend
+
+networks:
+  frontend
+    driver: overlay
