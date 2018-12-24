@@ -1,5 +1,5 @@
 
-FROM microsoft/iis:nanoserver
+FROM dtr.docker.ee/official/microsoft:iis-nanoserver
 #
 RUN powershell -NoProfile -Command \
     Import-module IISAdministration; \

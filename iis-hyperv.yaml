@@ -1,0 +1,20 @@
+version: "3.5"
+services:
+  iis:
+    image: mcr.microsoft.com/windows/servercore/iis:nanoserver
+    isolation: "hyperv"
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+      mode: replicated
+      replicas: 1
+      labels:
+        com.docker.lb.hosts: hyperv.apps.docker.ee
+        com.docker.lb.network: frontend
+        com.docker.lb.port: 80
+    networks: 
+      - frontend
+networks:
+  frontend:
+    driver: overlay
