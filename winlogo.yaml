@@ -1,7 +1,7 @@
 version: "3.2"
 services:
   iis:
-    image: dtr.docker.ee/dev/iis:latest
+    image: dtr.docker.ee/engineering/winlogo:latest
     deploy:
       mode: replicated
       replicas: 1
